@@ -62,7 +62,7 @@ class gmailsend(object):
 			# add attached file with base64 encode
 			sub_part = MIMEBase(main_type, sub_type)
 			sub_part['Content-ID'] = filename
-			sub_part.set_payload(open(att).read())
+			sub_part.set_payload(open(att,'rb').read())
 			encoders.encode_base64(sub_part)
 			sub_part.add_header('Content-Type', content_type, name=filename)
 			msg.attach(sub_part)
