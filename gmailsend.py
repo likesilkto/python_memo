@@ -22,25 +22,9 @@ cipher = AESCipher(generate_secret_key(passphrase))
 
 class gmailsend(object):
 
-	def gen_passfile( passfile = '.gmailsend' ):
-		account = input('account (without @gmail.com): ')
-		password = getpass('password: ')
-		account = cipher.encrypt( account )
-		password = cipher.encrypt( password )
-		with open(passfile, 'w') as fout:
-			fout.write(account+'\n')
-			fout.write(password+'\n')
-		os.chmod(passfile, S_IRUSR|S_IWUSR )
-
-	def get_accountpass( passfile = '.gmailsend' ):
-		with open(passfile, 'r') as fin:
-			account = fin.readline()
-			password = fin.readline()
-		account = cipher.decrypt( account )
-		password = cipher.decrypt( password )
-		return account, password
-
-	def __init__(self, passfile = '.gmailsend', host = 'smtp.gmail.com', port = 465 ):
+	def __init__(self, passfile = '.gmailsend', relativepath = True, host = 'smtp.gmail.com', port = 465 ):
+		if( relativepath ):
+			passfile = os.path.dirname(__file__) + '/' + passfile
 		account, password = gmailsend.get_accountpass(passfile)
 		self.account = account + '@gmail.com'
 		self.password = password
@@ -90,6 +74,24 @@ class gmailsend(object):
 		smtp.login(self.account, self.password)
 		smtp.sendmail(from_addr, to_addr, msg.as_string())
 		smtp.quit()
+
+	def gen_passfile( passfile = '.gmailsend' ):
+		account = input('account (without @gmail.com): ')
+		password = getpass('password: ')
+		account = cipher.encrypt( account )
+		password = cipher.encrypt( password )
+		with open(passfile, 'w') as fout:
+			fout.write(account+'\n')
+			fout.write(password+'\n')
+		os.chmod(passfile, S_IRUSR|S_IWUSR )
+
+	def get_accountpass( passfile = '.gmailsend' ):
+		with open(passfile, 'r') as fin:
+			account = fin.readline()
+			password = fin.readline()
+		account = cipher.decrypt( account )
+		password = cipher.decrypt( password )
+		return account, password
 
 
 
