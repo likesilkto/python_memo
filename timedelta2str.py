@@ -3,7 +3,7 @@
 
 from datetime import datetime
 
-def timedelta2str( td, format='{year:04d}/{month:02d}/{day:02d} {hour:02d}:{minute:02d}:{second:02d}' ):
+def timedelta2str( td, format='{y:04d}/{m:02d}/{d:02d} {H:02d}:{M:02d}:{S:02d}' ):
 	seconds = int(td.total_seconds())
 	periods = [
 		('year',   60*60*24*365),
@@ -23,12 +23,12 @@ def timedelta2str( td, format='{year:04d}/{month:02d}/{day:02d} {hour:02d}:{minu
 			data[period_name] = 0
 	
 	str = format.format(
-		year   = data['year'],
-		month  = data['month'],
-		day    = data['day'],
-		hour   = data['hour'],
-		minute = data['minute'],
-		second = data['second'],
+		y = data['year'],
+		m = data['month'],
+		d = data['day'],
+		H = data['hour'],
+		M = data['minute'],
+		S = data['second'],
 		)
 	return str
 
