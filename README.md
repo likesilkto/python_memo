@@ -5,6 +5,10 @@ Just for me.
 
 ## Description
 
+### raiseerror.py
+
+It is a simple example to raise (throw) error.
+
 ### killpg.py
 
 It is an example to kill process group whose root is PID.
