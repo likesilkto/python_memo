@@ -5,9 +5,13 @@ Just for me.
 
 ## Description
 
+### killpg.py
+
+It is an example to kill process group whose root is PID.
+
 ### crypt.py
 
-It is example of encrypt and decrypt with AES.
+It is an example of encrypt and decrypt with AES.
 passphrase is the key for the cipher.
 
 for install simple_aes_cipher:
@@ -17,18 +21,18 @@ for install simple_aes_cipher:
 
 ### gmailsend.py
 
-It is example to send email with multiple attached files.
+It is an example to send email with multiple attached files.
 The account information is encrypted with AES.
 
 ### csvplot.py
 
-It is example to plot graph with csv file.
+It is an example to plot graph with csv file.
 
 ### timedelta2str.py
 
 It is like strftime for timedelta.
 
-## Licence
+## License
 
 [MIT](https://github.com/likesilkto/python_memo/blob/master/LICENSE)
 
