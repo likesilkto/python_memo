@@ -5,9 +5,13 @@ Just for me.
 
 ## Description
 
+### stdout.py
+
+It is an example how to redirect stdout to the file.
+
 ### md2html.py
 
-It is a example to convert markdown to html.
+It is an example to convert markdown to html.
 
 For install package:
 
