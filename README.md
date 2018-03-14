@@ -5,6 +5,10 @@ Just for me.
 
 ## Description
 
+### byte2uint8.py
+
+It is an example to cast between bytes (binary data) and unsigned char (numpy.uint8).
+
 ### stdout.py
 
 It is an example how to redirect stdout to the file.
